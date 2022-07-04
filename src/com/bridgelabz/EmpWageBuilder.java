@@ -8,7 +8,7 @@ public class EmpWageBuilder {
     static int DAYS_PER_MONTH = 20;
     static int TOTAL_HRS_PER_MONTH = 100;
 
-    public static void main(String[] args) {
+    static void computeEmpWages(){
         int empHrs = 0;
         int wagePerMonth = 0;
         int totalHrs = 0;
@@ -37,5 +37,9 @@ public class EmpWageBuilder {
         wagePerMonth = totalHrs*EMP_RATE_PER_HRS;
         System.out.println(" ");
         System.out.println("total employee wage is : "+wagePerMonth);
+    }
+
+    public static void main(String[] args) {
+        computeEmpWages();
     }
 }
