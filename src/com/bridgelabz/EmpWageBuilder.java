@@ -1,14 +1,13 @@
 package com.bridgelabz;
 
 public class EmpWageBuilder {
-
     public final static int IS_FULL_TIME = 1;
     public final static int IS_PART_TIME = 2;
-
     private final String COMPANY;
     private final int EMP_RATE_PER_HRS;
     private final int DAYS_PER_MONTH;
     private final int TOTAL_HRS_PER_MONTH;
+    private int wagePerMonth;
 
     EmpWageBuilder(String company, int empRate, int dayPerMonth, int totalHrs)
     {
@@ -19,7 +18,6 @@ public class EmpWageBuilder {
     }
     void computeEmpWages(){
         int empHrs = 0;
-        int wagePerMonth = 0;
         int totalHrs = 0;
         int totalDays = 0;
         while (totalHrs <= TOTAL_HRS_PER_MONTH && totalDays < DAYS_PER_MONTH){
@@ -45,15 +43,20 @@ public class EmpWageBuilder {
         }
         wagePerMonth = totalHrs*EMP_RATE_PER_HRS;
         System.out.println(" ");
-        System.out.println(COMPANY +" employee total wage is : "+wagePerMonth);
     }
-
+    @Override
+    public String toString() {
+        return "Total emp wage for company " + COMPANY + " is " + wagePerMonth;
+    }
     public static void main(String[] args) {
         EmpWageBuilder dmart = new EmpWageBuilder("D-mart",15,25,200);
-        dmart.computeEmpWages();
-
         EmpWageBuilder reliance = new EmpWageBuilder("Reliance",20,20,160);
         dmart.computeEmpWages();
-
+        System.out.println(dmart);
+        System.out.println(" ");
+        System.out.println("***************************");
+        System.out.println(" ");
+        reliance.computeEmpWages();
+        System.out.println(reliance);
     }
 }
